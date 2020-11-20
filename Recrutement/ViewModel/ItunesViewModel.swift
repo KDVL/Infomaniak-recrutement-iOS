@@ -9,17 +9,20 @@ import Foundation
 
 class ItunesViewModel: ObservableObject {
 
-    ///model
-    @Published private(set) var model = SearchModel(res:[])
+    ///original model
+    @Published private(set) var model = SearchModel(res:[], order: .type)
     
     ///current filter
     @Published var filter = FiltersModel.defaultFilter
     
-    ///curent title filter
-    var filterTitle:String { get { filter.title } set {}}
-    
     ///is loading data
     @Published var isLoading = false
+    
+    @Published var order = SearchModel.Order.type {
+        didSet {
+            if oldValue != order { model.sort(order:order) }
+        }
+    }
     
     ///text to search
     var searchText = "" {
@@ -34,7 +37,7 @@ class ItunesViewModel: ObservableObject {
             load(term: searchText)
         }else{
             isLoading = false
-            model = SearchModel(res:[])
+            model = SearchModel(res:[], order: order)
         }
     }
     
@@ -47,13 +50,14 @@ class ItunesViewModel: ObservableObject {
             if self.searchText == term {
                 
                 if let results = data?.results {
-                    self.model = SearchModel(res:results)
+                    self.model = SearchModel(res:results, order: self.order)
                 }else{
-                    print(error)
+                    self.model = SearchModel(res: [], order: self.order)
                 }
                 
                 self.isLoading = false
             }
         }
     }
+   
 }

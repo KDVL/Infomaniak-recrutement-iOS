@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ItunesListView: View {
     @ObservedObject var viewModel = ItunesViewModel()
-    @State private var showFiltersView: Bool = false
+    @State private var showFiltersView = false
+    @State private var showActionSheet = false
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 List {
@@ -20,16 +22,22 @@ struct ItunesListView: View {
                         .removePadding()
                         .listRowBackground(Color("secondary"))
                     
-                    FilterHeader(filter: $viewModel.filterTitle,
+                    FilterHeader(filter:Binding(get: { self.viewModel.filter.title }, set: { _,_ in  }),
                                  filterAction: {self.showFiltersView = true},
-                                 sortTitle:"Order by type")
+                                 sortTitle:viewModel.order.rawValue,
+                                 sortAction:{ self.showActionSheet = true})
                         .removePadding()
                         .rowBackground()
                     
-                    ForEach(viewModel.model.content, id:\.id) {
-                        ItemRow(item: $0)
-                            .removePadding()
-                            .blur(radius:viewModel.isLoading ? 2 : 0)
+                    ForEach(viewModel.model.content, id: \.id) { section in
+                        Section(header: ListHeader(title: section.title)) {
+                            ForEach(section.items, id:\.id) {
+                                ListItemRow(item: $0)
+                                    .removePadding()
+                            }
+                        }
+                        .blur(radius:viewModel.isLoading ? 2 : 0)
+                        .removePadding()
                     }
                 }
                 .rowBackground()
@@ -41,6 +49,16 @@ struct ItunesListView: View {
             }
             .sheet(isPresented: self.$showFiltersView, onDismiss: self.viewModel.reload) {
                 FiltersView(viewModel: self.viewModel)
+            }
+            .actionSheet(isPresented: $showActionSheet) {
+                ActionSheet(title: Text("Order"),
+                            buttons: [.default(Text(SearchModel.Order.type.actionTitle()))
+                                        {self.viewModel.order = .type},
+                                      .default(Text(SearchModel.Order.artist.actionTitle()))
+                                        {self.viewModel.order = .artist},
+                                      .cancel(Text("Annuler")),
+                    ]
+                )
             }
             .navigationBarTitle("Itunes Search", displayMode: .inline)
         }

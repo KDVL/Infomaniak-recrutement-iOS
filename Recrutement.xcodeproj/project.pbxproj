@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A1D2B44256827E100E3DB96 /* List+StyleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B43256827E100E3DB96 /* List+StyleList.swift */; };
 		0A1D2B472568284200E3DB96 /* View+RowBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B462568284200E3DB96 /* View+RowBackground.swift */; };
-		0A1D2B4F256829F300E3DB96 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B4E256829F300E3DB96 /* ItemRow.swift */; };
+		0A1D2B4F256829F300E3DB96 /* ListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B4E256829F300E3DB96 /* ListItemRow.swift */; };
 		0A1D2B5325682AD600E3DB96 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B5225682AD600E3DB96 /* ImageLoader.swift */; };
 		0A1D2B5C2568352E00E3DB96 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B5A2568352E00E3DB96 /* FilterButton.swift */; };
 		0A1D2B5D2568352E00E3DB96 /* FilterHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B5B2568352E00E3DB96 /* FilterHeader.swift */; };
@@ -17,6 +17,7 @@
 		0A1D2B6425683DDE00E3DB96 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B6325683DDE00E3DB96 /* FiltersView.swift */; };
 		0A1D2B6725683E0C00E3DB96 /* ModalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B6625683E0C00E3DB96 /* ModalHeader.swift */; };
 		0A1D2B6A2568400D00E3DB96 /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B692568400D00E3DB96 /* FiltersModel.swift */; };
+		0A1D2B722568598A00E3DB96 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D2B712568598A00E3DB96 /* ListHeader.swift */; };
 		0A64EB782567CB8D00B77FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EB772567CB8D00B77FC5 /* AppDelegate.swift */; };
 		0A64EB7A2567CB8D00B77FC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EB792567CB8D00B77FC5 /* SceneDelegate.swift */; };
 		0A64EB7C2567CB8D00B77FC5 /* ItunesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EB7B2567CB8D00B77FC5 /* ItunesListView.swift */; };
@@ -47,7 +48,7 @@
 /* Begin PBXFileReference section */
 		0A1D2B43256827E100E3DB96 /* List+StyleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+StyleList.swift"; sourceTree = "<group>"; };
 		0A1D2B462568284200E3DB96 /* View+RowBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+RowBackground.swift"; sourceTree = "<group>"; };
-		0A1D2B4E256829F300E3DB96 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		0A1D2B4E256829F300E3DB96 /* ListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRow.swift; sourceTree = "<group>"; };
 		0A1D2B5225682AD600E3DB96 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0A1D2B5A2568352E00E3DB96 /* FilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		0A1D2B5B2568352E00E3DB96 /* FilterHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHeader.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		0A1D2B6325683DDE00E3DB96 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		0A1D2B6625683E0C00E3DB96 /* ModalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHeader.swift; sourceTree = "<group>"; };
 		0A1D2B692568400D00E3DB96 /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
+		0A1D2B712568598A00E3DB96 /* ListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeader.swift; sourceTree = "<group>"; };
 		0A64EB742567CB8D00B77FC5 /* Recrutement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recrutement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A64EB772567CB8D00B77FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A64EB792567CB8D00B77FC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				0A64EB7B2567CB8D00B77FC5 /* ItunesListView.swift */,
-				0A1D2B4E256829F300E3DB96 /* ItemRow.swift */,
 				0A1D2B6325683DDE00E3DB96 /* FiltersView.swift */,
 				0A64EBD825681F4300B77FC5 /* Components */,
 			);
@@ -210,6 +211,8 @@
 		0A64EBD825681F4300B77FC5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0A1D2B712568598A00E3DB96 /* ListHeader.swift */,
+				0A1D2B4E256829F300E3DB96 /* ListItemRow.swift */,
 				0A1D2B5F2568356400E3DB96 /* SortButton.swift */,
 				0A1D2B6625683E0C00E3DB96 /* ModalHeader.swift */,
 				0A1D2B5A2568352E00E3DB96 /* FilterButton.swift */,
@@ -377,10 +380,11 @@
 				0A1D2B6425683DDE00E3DB96 /* FiltersView.swift in Sources */,
 				0A64EBC3256816BA00B77FC5 /* CodableHelper.swift in Sources */,
 				0A64EB782567CB8D00B77FC5 /* AppDelegate.swift in Sources */,
+				0A1D2B722568598A00E3DB96 /* ListHeader.swift in Sources */,
 				0A64EB7A2567CB8D00B77FC5 /* SceneDelegate.swift in Sources */,
 				0A1D2B5C2568352E00E3DB96 /* FilterButton.swift in Sources */,
 				0A1D2B5D2568352E00E3DB96 /* FilterHeader.swift in Sources */,
-				0A1D2B4F256829F300E3DB96 /* ItemRow.swift in Sources */,
+				0A1D2B4F256829F300E3DB96 /* ListItemRow.swift in Sources */,
 				0A1D2B6725683E0C00E3DB96 /* ModalHeader.swift in Sources */,
 				0A64EBC2256816BA00B77FC5 /* JSONEncodingHelper.swift in Sources */,
 				0A1D2B5325682AD600E3DB96 /* ImageLoader.swift in Sources */,

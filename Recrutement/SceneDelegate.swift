@@ -37,9 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let bg = UIColor(named: "infomaniakColor")!
 
         window?.tintColor = UIColor.white
-        window?.rootViewController?.view.backgroundColor = bg
 
-        UITableView.appearance().showsVerticalScrollIndicator = false
         UITableView.appearance().backgroundColor = UIColor(named: "primary")
         UITableViewCell.appearance().backgroundColor = UIColor(named: "secondary")
 

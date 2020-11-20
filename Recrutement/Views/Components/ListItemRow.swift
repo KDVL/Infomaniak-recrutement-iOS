@@ -1,5 +1,5 @@
 //
-//  ItemRow.swift
+//  ListItemRow.swift
 //  Recrutement
 //
 //  Created by Kevin Do Vale on 20.11.20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemRow: View {
+struct ListItemRow: View {
     
     let item:ItunesItem
     
@@ -23,7 +23,7 @@ struct ItemRow: View {
                 .clipped()
             
             VStack(alignment: .leading, spacing:10.0){
-                Text(item.title)
+                Text(item.artist)
                     .bold()
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color("TextTint"))

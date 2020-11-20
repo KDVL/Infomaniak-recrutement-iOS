@@ -12,7 +12,7 @@ struct FilterButton: View {
     
     private let buttonSize = CGFloat(10.0)
     var body: some View {
-        HStack(spacing: 2.0){
+        HStack {
             
             Text(title)
                 .foregroundColor(Color.white)
