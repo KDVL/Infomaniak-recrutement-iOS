@@ -17,7 +17,7 @@ struct FilterHeader: View {
         
         HStack(alignment:.top, spacing:0.0){
             
-            FilterButton(title: filter).onTapGesture {
+            BlueButton(title: filter).onTapGesture {
                 self.filterAction()
             }
             

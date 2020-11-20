@@ -12,8 +12,10 @@ struct ListItemRow: View {
     let item:ItunesItem
     
     @ObservedObject var imageLoader = ImageLoader()
+    @State var isActive = false
     
     var body: some View {
+    
         HStack(spacing:0.0) {
             
             Image(uiImage: imageLoader.image ?? UIImage())
@@ -41,13 +43,21 @@ struct ListItemRow: View {
             .padding(.horizontal, 16)
             .padding(.top, 8)
             
-    
+            
+            NavigationLink(destination:
+                            DetailView(item: self.item, image: imageLoader.image ?? UIImage()),
+                           isActive: self.$isActive){EmptyView()}
+                .frame(width: 0, height: 0)
+                .hidden()
         }
         .frame(height:130)
-        .rowBackground()
+        .background(Color("primary"))
         .onAppear {
             loadImage()
+        }.onTapGesture {
+            self.isActive = true
         }
+        
     }
     
     ///set url to imageLoader

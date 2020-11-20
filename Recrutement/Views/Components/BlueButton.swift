@@ -1,5 +1,5 @@
 //
-//  FilterButton.swift
+//  BlueButton.swift
 //  Recrutement
 //
 //  Created by Kevin Do Vale on 20.11.20.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct FilterButton: View {
+struct BlueButton: View {
     let title:String
+    var minWidth = CGFloat(30.0)
     
     private let buttonSize = CGFloat(10.0)
     var body: some View {
@@ -16,7 +17,7 @@ struct FilterButton: View {
             
             Text(title)
                 .foregroundColor(Color.white)
-                .frame(minWidth: 30)
+                .frame(minWidth: minWidth)
                 .padding(.vertical, 3.0)
                 .padding(.horizontal, 5.0)
             
@@ -29,6 +30,6 @@ struct FilterButton: View {
 
 struct FilterButton_Previews: PreviewProvider {
     static var previews: some View {
-        FilterButton(title: "All")
+        BlueButton(title: "All")
     }
 }

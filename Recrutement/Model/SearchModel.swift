@@ -86,6 +86,13 @@ struct ItunesItem {
     ///kind of item
     let type:String
     
+    /** A URL for the content associated with the returned media type.  */
+    let artistViewUrl: String?
+    /** A URL for the content associated with the returned media type.  */
+    let trackViewUrl: String?
+    /** A URL referencing the 30-second preview file for the content associated with the returned media type.  Only returned when media type is track    */
+    let previewUrl: String?
+    
     static let parse:(Result) -> (ItunesItem) = {
         var description = ""
         if let trackName = $0.trackName {
@@ -100,6 +107,9 @@ struct ItunesItem {
         return ItunesItem(artist: $0.artistName ?? "",
                           description: description,
                           thumbnailURL: $0.artworkUrl100 ?? "",
-                          type:$0.kind?.rawValue ?? "Unknown")
+                          type:$0.kind?.rawValue ?? "Unknown",
+                          artistViewUrl: $0.artistViewUrl,
+                          trackViewUrl: $0.trackViewUrl,
+                          previewUrl: $0.previewUrl)
     }
 }

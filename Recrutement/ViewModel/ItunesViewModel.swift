@@ -45,7 +45,7 @@ class ItunesViewModel: ObservableObject {
     private func load(term:String){
         isLoading = true
         
-        SearchAPI.searchByTerm(term: term, country: "US", media: filter.apiFilter) { (data, error) in
+        SearchAPI.searchByTerm(term: term, country: "CH", media: filter.apiFilter) { (data, error) in
             
             if self.searchText == term {
                 
