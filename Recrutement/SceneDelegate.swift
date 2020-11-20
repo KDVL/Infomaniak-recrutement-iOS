@@ -28,9 +28,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
             
+            setAppAppearance()
         }
     }
     
+    
+    func setAppAppearance(){
+     
+        let bg = UIColor(named: "infomaniakColor")!
+
+        window?.tintColor = UIColor.white
+        window?.rootViewController?.view.backgroundColor = bg
+
+        UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableView.appearance().backgroundColor = UIColor(named: "primary")
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "secondary")
+
+        UITableViewCell.appearance().selectionStyle = .none
+
+        //New iOS 13 Navigation Appearance
+        let appearance = UINavigationBarAppearance()
+
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = bg
+        appearance.titleTextAttributes = [ .foregroundColor:UIColor.white]
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(named:"TextTint")
+
+        UITextField.appearance().tintColor = UIColor(named:"TextTint")?.withAlphaComponent(0.4)
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
