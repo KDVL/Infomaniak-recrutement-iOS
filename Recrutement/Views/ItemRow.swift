@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ItemRow: View {
-    let item:ItunesItem
-    @ObservedObject var imageLoader:ImageLoader
     
-    @State var isActive = false
+    let item:ItunesItem
+    
+    @ObservedObject var imageLoader = ImageLoader()
+    
     var body: some View {
         HStack(spacing:0.0) {
             
@@ -40,9 +41,17 @@ struct ItemRow: View {
             .padding(.horizontal, 16)
             .padding(.top, 8)
             
-            
+    
         }
         .frame(height:130)
         .rowBackground()
+        .onAppear {
+            loadImage()
+        }
+    }
+    
+    ///set url to imageLoader
+    func loadImage(){
+        self.imageLoader.url = item.thumbnailURL
     }
 }

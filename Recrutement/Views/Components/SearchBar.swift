@@ -26,8 +26,9 @@ struct SearchBar: View {
                 TextField("", text: $searchText)
                     .foregroundColor(Color("TextTint"))
                     .introspectTextField { textField in
-                        if self.beacomeFirstResponder  && !textField.isFirstResponder  {
+                        if firstTime && self.beacomeFirstResponder  && !textField.isFirstResponder  {
                                 textField.becomeFirstResponder()
+                            firstTime = false
                         }
                 }
                 
@@ -43,30 +44,6 @@ struct SearchBar: View {
         }
         .background(Color("secondary"))
         .navigationBarHidden(showCancelButton)
-    }
-}
-
-extension UIApplication {
-    func endEditing(_ force: Bool) {
-        self.windows
-            .filter{$0.isKeyWindow}
-            .first?
-            .endEditing(force)
-    }
-}
-
-struct ResignKeyboardOnDragGesture: ViewModifier {
-    var gesture = DragGesture().onChanged{_ in
-        UIApplication.shared.endEditing(true)
-    }
-    func body(content: Content) -> some View {
-        content.gesture(gesture)
-    }
-}
-
-extension View {
-    func resignKeyboardOnDragGesture() -> some View {
-        modifier(ResignKeyboardOnDragGesture())
     }
 }
 

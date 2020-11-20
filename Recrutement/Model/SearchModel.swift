@@ -7,8 +7,8 @@
 
 import Foundation
 
-
-class ContentModel:NSObject {
+class SearchModel:NSObject {
+    ///itunes items
     let content:[ItunesItem]
     
     init(res:[Result]){
@@ -18,8 +18,12 @@ class ContentModel:NSObject {
 
 struct ItunesItem {
     let id = UUID()
+    
+    ///ui title
     let title:String
+    ///ui description
     let description:String
+    ///ui thumbnail URL
     let thumbnailURL:String
     
     static let parse:(Result) -> (ItunesItem) = {

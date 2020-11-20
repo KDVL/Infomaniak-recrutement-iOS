@@ -27,7 +27,7 @@ struct FilterButton: View {
     }
 }
 
-struct FilterInfo_Previews: PreviewProvider {
+struct FilterButton_Previews: PreviewProvider {
     static var previews: some View {
         FilterButton(title: "All")
     }

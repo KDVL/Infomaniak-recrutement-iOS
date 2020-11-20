@@ -10,8 +10,13 @@ import AlamofireImage
 
 class ImageLoader : ObservableObject {
     @Published var image:UIImage?
-
-    init(url:String) {
+    
+    var url:String? {
+        didSet { load() }
+    }
+    
+    func load() {
+        guard let url = url else { return }
         Alamofire.request(url).responseImage { response in
             if response.result.value != nil {
                 self.image = UIImage(data: response.data!, scale: 2.0)

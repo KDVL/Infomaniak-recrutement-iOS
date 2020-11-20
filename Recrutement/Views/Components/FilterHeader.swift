@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilterHeader: View {
     @Binding var filter:String
+    var filterAction:()->()
     var sortTitle:String?
     var sortAction:(()->())?
     
@@ -16,7 +17,9 @@ struct FilterHeader: View {
         
         HStack(alignment:.top, spacing:0.0){
             
-            FilterButton(title: filter)
+            FilterButton(title: filter).onTapGesture {
+                self.filterAction()
+            }
             
             Spacer()
             
@@ -44,7 +47,8 @@ struct FilterHeader_Previews: PreviewProvider {
 
       var body: some View {
         FilterHeader(filter: $filter,
-                     sortTitle: "Tri par date",
+                     filterAction: {},
+                     sortTitle: "Order by ...",
                      sortAction: {})
       }
     }

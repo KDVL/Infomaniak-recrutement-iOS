@@ -31,7 +31,7 @@ struct SortButton: View {
     }
 }
 
-struct WorksListSort_Previews: PreviewProvider {
+struct SortButton_Previews: PreviewProvider {
     static var previews: some View {
         SortButton(buttonTitle: "Order by ...") {}
     }

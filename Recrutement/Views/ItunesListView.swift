@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ItunesListView.swift
 //  Recrutement
 //
 //  Created by Kevin Do Vale on 20.11.20.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var viewModel = ContentViewModel()
+struct ItunesListView: View {
+    @ObservedObject var viewModel = ItunesViewModel()
+    @State private var showFiltersView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -19,17 +20,17 @@ struct ContentView: View {
                         .removePadding()
                         .listRowBackground(Color("secondary"))
                     
-                    FilterHeader(filter: $viewModel.filterTitle, sortTitle:"Order by type")
+                    FilterHeader(filter: $viewModel.filterTitle,
+                                 filterAction: {self.showFiltersView = true},
+                                 sortTitle:"Order by type")
                         .removePadding()
                         .rowBackground()
                     
                     ForEach(viewModel.model.content, id:\.id) {
-                        ItemRow(item: $0,
-                                imageLoader: ImageLoader(url: $0.thumbnailURL))
+                        ItemRow(item: $0)
                             .removePadding()
                             .blur(radius:viewModel.isLoading ? 2 : 0)
                     }
-                    
                 }
                 .rowBackground()
                 .styleList()
@@ -38,13 +39,16 @@ struct ContentView: View {
                     ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
                 }
             }
+            .sheet(isPresented: self.$showFiltersView, onDismiss: self.viewModel.reload) {
+                FiltersView(viewModel: self.viewModel)
+            }
             .navigationBarTitle("Itunes Search", displayMode: .inline)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ItunesListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ItunesListView()
     }
 }

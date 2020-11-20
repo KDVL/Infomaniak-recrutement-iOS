@@ -11,7 +11,6 @@ extension View {
     func styleList() -> some View  {
         Group {
             if #available(iOS 14.0, *) {
-
                 self.listStyle(PlainListStyle())
             }else {
                 self
