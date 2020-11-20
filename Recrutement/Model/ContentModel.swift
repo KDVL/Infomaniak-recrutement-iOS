@@ -16,7 +16,6 @@ class ContentModel:NSObject {
     }
 }
 
-
 struct ItunesItem {
     let id = UUID()
     let title:String

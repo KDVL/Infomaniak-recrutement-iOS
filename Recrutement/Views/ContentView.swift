@@ -17,15 +17,22 @@ struct ContentView: View {
                     SearchBar(beacomeFirstResponder: true,
                               searchText: $viewModel.searchText)
                         .removePadding()
+                        .listRowBackground(Color("secondary"))
+                    
+                    FilterHeader(filter: $viewModel.filterTitle, sortTitle:"Order by type")
+                        .removePadding()
                         .rowBackground()
                     
                     ForEach(viewModel.model.content, id:\.id) {
                         ItemRow(item: $0,
                                 imageLoader: ImageLoader(url: $0.thumbnailURL))
                             .removePadding()
+                            .blur(radius:viewModel.isLoading ? 2 : 0)
                     }
                     
-                }.styleList()
+                }
+                .rowBackground()
+                .styleList()
                 
                 if viewModel.isLoading {
                     ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)

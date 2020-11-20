@@ -12,6 +12,9 @@ class ContentViewModel: ObservableObject {
     ///model
     @Published private(set) var model = ContentModel(res:[])
     
+    @Published var filter:SearchAPI.Media_searchByTerm = .all
+    var filterTitle:String { get { filter.rawValue.capitalized } set {}}
+    
     @Published var isLoading = false
     
     var searchText = "" {
@@ -28,7 +31,7 @@ class ContentViewModel: ObservableObject {
     private func load(term:String){
         isLoading = true
         
-        SearchAPI.searchByTerm(term: term, country: "US", media: .all) { (data, error) in
+        SearchAPI.searchByTerm(term: term, country: "US", media: filter) { (data, error) in
             
             if self.searchText == term {
                 

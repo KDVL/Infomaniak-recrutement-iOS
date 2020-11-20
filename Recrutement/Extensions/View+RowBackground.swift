@@ -9,6 +9,6 @@ import SwiftUI
 
 extension View {
     func rowBackground() -> some View  {
-        return self.listRowBackground(Color("secondary"))
+        return self.listRowBackground(Color("primary"))
     }
 }

@@ -41,6 +41,8 @@ struct ItemRow: View {
             .padding(.top, 8)
             
             
-        }.frame(height:130)
+        }
+        .frame(height:130)
+        .rowBackground()
     }
 }
