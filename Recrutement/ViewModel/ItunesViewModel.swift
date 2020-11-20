@@ -18,6 +18,7 @@ class ItunesViewModel: ObservableObject {
     ///is loading data
     @Published var isLoading = false
     
+    ///current order 
     @Published var order = SearchModel.Order.type {
         didSet {
             if oldValue != order { model.sort(order:order) }

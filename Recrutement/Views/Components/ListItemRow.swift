@@ -45,7 +45,8 @@ struct ListItemRow: View {
             
             
             NavigationLink(destination:
-                            DetailView(item: self.item, image: imageLoader.image ?? UIImage()),
+                            DetailView(item: self.item,
+                                       image: imageLoader.image ?? UIImage()),
                            isActive: self.$isActive){EmptyView()}
                 .frame(width: 0, height: 0)
                 .hidden()

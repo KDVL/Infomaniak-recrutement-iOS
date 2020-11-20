@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct DetailView: View {
+    ///the item to show
     let item:ItunesItem
+    
+    ///the loaded image
     let image:UIImage
+    
     var body: some View {
         
         let buttons = [

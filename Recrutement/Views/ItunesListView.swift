@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItunesListView: View {
     @ObservedObject var viewModel = ItunesViewModel()
+    
     @State private var showFiltersView = false
     @State private var showActionSheet = false
     
