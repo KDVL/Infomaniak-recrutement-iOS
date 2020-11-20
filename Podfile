@@ -9,5 +9,6 @@ target 'Recrutement' do
 
   # Pods for B4B
 	pod 'Alamofire', '~> 4.0'
+	pod 'AlamofireImage', '~> 3.0'
   	pod "Introspect"
 end
