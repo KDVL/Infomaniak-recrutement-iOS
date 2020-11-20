@@ -28,98 +28,16 @@ open class SearchAPI {
     }
 
     /**
-     * enum for parameter entity
-     */
-    public enum Entity_searchByTerm: String { 
-        case movie = "movie"
-        case movieartist = "movieArtist"
-        case podcastauthor = "podcastAuthor"
-        case podcast = "podcast"
-        case musicartist = "musicArtist"
-        case musicvideo = "musicVideo"
-        case audiobookauthor = "audiobookAuthor"
-        case audiobook = "audiobook"
-        case shortfilmartist = "shortFilmArtist"
-        case shortfilm = "shortFilm"
-        case tvepisode = "tvEpisode"
-        case tvseason = "tvSeason"
-        case software = "software"
-        case ipadsoftware = "iPadSoftware"
-        case macsoftware = "macSoftware"
-        case ebook = "ebook"
-        case album = "album"
-        case allartist = "allArtist"
-        case mix = "mix"
-        case alltrack = "allTrack"
-        case musictrack = "musicTrack"
-        case song = "song"
-    }
-
-    /**
-     * enum for parameter attribute
-     */
-    public enum Attribute_searchByTerm: String { 
-        case actorterm = "actorTerm"
-        case languageterm = "languageTerm"
-        case allartistterm = "allArtistTerm"
-        case tvepisodeterm = "tvEpisodeTerm"
-        case shortfilmterm = "shortFilmTerm"
-        case directorterm = "directorTerm"
-        case releaseyearterm = "releaseYearTerm"
-        case titleterm = "titleTerm"
-        case featurefilmterm = "featureFilmTerm"
-        case ratingindex = "ratingIndex"
-        case keywordsterm = "keywordsTerm"
-        case descriptionterm = "descriptionTerm"
-        case authorterm = "authorTerm"
-        case genreindex = "genreIndex"
-        case mixterm = "mixTerm"
-        case alltrackterm = "allTrackTerm"
-        case artistterm = "artistTerm"
-        case composerterm = "composerTerm"
-        case tvseasonterm = "tvSeasonTerm"
-        case producerterm = "producerTerm"
-        case ratingterm = "ratingTerm"
-        case songterm = "songTerm"
-        case movieartistterm = "movieArtistTerm"
-        case showterm = "showTerm"
-        case movieterm = "movieTerm"
-        case albumterm = "albumTerm"
-    }
-
-    /**
-     * enum for parameter lang
-     */
-    public enum Lang_searchByTerm: String { 
-        case enUs = "en_us"
-        case jaJp = "ja_jp"
-    }
-
-    /**
-     * enum for parameter explicit_
-     */
-    public enum Explicit__searchByTerm: String { 
-        case yes = "Yes"
-        case no = "No"
-    }
-
-    /**
      Search itunes with term
      
      - parameter term: (query) The URL-encoded text string you want to search for.  For example: jack+johnson.  URL encoding replaces spaces with the plus (+) character and all characters except the following are encoded: letters, numbers, periods (.), dashes (-), underscores (_), and asterisks (*)  
      - parameter country: (query) The two-letter country code for the store you want to search. The search uses the default store front for the specified country.  See [ISO 3166](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)  
      - parameter media: (query) The media type you want to search for.   (optional, default to all)
-     - parameter entity: (query) The type of results you want returned, relative to the specified media type.   For example: movieArtist for a movie media type search.   The default is the track entity associated with the specified media type.  The following entities are available for each media type:  &#x60;&#x60;&#x60; movie: movie, movieArtist podcast: podcastAuthor, podcast music: musicArtist, musicTrack, album, musicVideo, mix, song musicVideo: musicArtist, musicVideo audiobook: audiobookAuthor, audiobook shortFilm: shortFilmArtist, shortFilm tvShow: tvEpisode, tvSeason software: software, iPadSoftware, macSoftware ebook: ebook all  : movie, album, allArtist, podcast, musicVideo, mix, audiobook, tvSeason, allTrack &#x60;&#x60;&#x60;       Please note that “musicTrack” can include both songs and music videos in the results  (optional, default to allTrack)
-     - parameter attribute: (query) The attribute you want to search for in the stores, relative to the specified media type.  For example, if you want to search for an artist by name specify entity&#x3D;allArtist&amp;attribute&#x3D;allArtistTerm.   In this example, if you search for term&#x3D;maroon, iTunes returns “Maroon 5” in the search results, instead of all artists who have ever recorded a song with the word “maroon” in the title.  default: select all    The following attributes are available for each media type:  &#x60;&#x60;&#x60; movie: actorTerm, genreIndex, artistTerm, shortFilmTerm, producerTerm, ratingTerm, directorTerm, releaseYearTerm, featureFilmTerm, movieArtistTerm, movieTerm, ratingIndex, descriptionTerm podcast: titleTerm, languageTerm, authorTerm, genreIndex, artistTerm, ratingIndex, keywordsTerm, descriptionTerm music: mixTerm, genreIndex, artistTerm, composerTerm, albumTerm, ratingIndex, songTerm  musicVideo: genreIndex, artistTerm, albumTerm, ratingIndex, songTerm audiobook: audiobookAuthortitleTerm, authorTerm, genreIndex, ratingIndex shortFilm: genreIndex, artistTerm, shortFilmTerm, ratingIndex, descriptionTerm tvShow: tvEpisodegenreIndex, tvEpisodeTerm, showTerm, tvSeasonTerm, ratingIndex, descriptionTerm software: softwaresoftwareDeveloper all  : actorTerm, languageTerm, allArtistTerm, tvEpisodeTerm, shortFilmTerm, directorTerm, releaseYearTerm, titleTerm, featureFilmTerm, ratingIndex, keywordsTerm, descriptionTerm, authorTerm, genreIndex, mixTerm, allTrackTerm, artistTerm, composerTerm, tvSeasonTerm, producerTerm, ratingTerm, songTerm, movieArtistTerm, showTerm, movieTerm, albumTerm &#x60;&#x60;&#x60;        (optional)
-     - parameter callback: (query) TheThe name of the callback function you want to use when returning search results to your website.  (optional)
      - parameter limit: (query) The number of search results you want the iTunes Store to return.  value allowed for [1, 200]  (optional, default to 50)
-     - parameter lang: (query) The language, English or Japanese, you want to use when returning search results. Specify the language using the five-letter codename.   For example: en_us.The default is en_us (English).              (optional, default to en_us)
-     - parameter version: (query) The search result key version you want to receive back from your search.  (optional, default to 2)
-     - parameter explicit_: (query) A flag indicating whether or not you want to include explicit content in your search results.    (optional, default to Yes)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func searchByTerm(term: String, country: String, media: Media_searchByTerm? = nil, entity: Entity_searchByTerm? = nil, attribute: Attribute_searchByTerm? = nil, callback: String? = nil, limit: Int? = nil, lang: Lang_searchByTerm? = nil, version: Int? = nil, explicit_: Explicit__searchByTerm? = nil, completion: @escaping ((_ data: InlineResponse200?,_ error: Error?) -> Void)) {
-        searchByTermWithRequestBuilder(term: term, country: country, media: media, entity: entity, attribute: attribute, callback: callback, limit: limit, lang: lang, version: version, explicit_: explicit_).execute { (response, error) -> Void in
+    open class func searchByTerm(term: String, country: String, media: Media_searchByTerm? = nil, limit: Int? = nil, completion: @escaping ((_ data: SearchResponse?,_ error: Error?) -> Void)) {
+        searchByTermWithRequestBuilder(term: term, country: country, media: media, limit: limit).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -197,17 +115,11 @@ open class SearchAPI {
      - parameter term: (query) The URL-encoded text string you want to search for.  For example: jack+johnson.  URL encoding replaces spaces with the plus (+) character and all characters except the following are encoded: letters, numbers, periods (.), dashes (-), underscores (_), and asterisks (*)  
      - parameter country: (query) The two-letter country code for the store you want to search. The search uses the default store front for the specified country.  See [ISO 3166](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)  
      - parameter media: (query) The media type you want to search for.   (optional, default to all)
-     - parameter entity: (query) The type of results you want returned, relative to the specified media type.   For example: movieArtist for a movie media type search.   The default is the track entity associated with the specified media type.  The following entities are available for each media type:  &#x60;&#x60;&#x60; movie: movie, movieArtist podcast: podcastAuthor, podcast music: musicArtist, musicTrack, album, musicVideo, mix, song musicVideo: musicArtist, musicVideo audiobook: audiobookAuthor, audiobook shortFilm: shortFilmArtist, shortFilm tvShow: tvEpisode, tvSeason software: software, iPadSoftware, macSoftware ebook: ebook all  : movie, album, allArtist, podcast, musicVideo, mix, audiobook, tvSeason, allTrack &#x60;&#x60;&#x60;       Please note that “musicTrack” can include both songs and music videos in the results  (optional, default to allTrack)
-     - parameter attribute: (query) The attribute you want to search for in the stores, relative to the specified media type.  For example, if you want to search for an artist by name specify entity&#x3D;allArtist&amp;attribute&#x3D;allArtistTerm.   In this example, if you search for term&#x3D;maroon, iTunes returns “Maroon 5” in the search results, instead of all artists who have ever recorded a song with the word “maroon” in the title.  default: select all    The following attributes are available for each media type:  &#x60;&#x60;&#x60; movie: actorTerm, genreIndex, artistTerm, shortFilmTerm, producerTerm, ratingTerm, directorTerm, releaseYearTerm, featureFilmTerm, movieArtistTerm, movieTerm, ratingIndex, descriptionTerm podcast: titleTerm, languageTerm, authorTerm, genreIndex, artistTerm, ratingIndex, keywordsTerm, descriptionTerm music: mixTerm, genreIndex, artistTerm, composerTerm, albumTerm, ratingIndex, songTerm  musicVideo: genreIndex, artistTerm, albumTerm, ratingIndex, songTerm audiobook: audiobookAuthortitleTerm, authorTerm, genreIndex, ratingIndex shortFilm: genreIndex, artistTerm, shortFilmTerm, ratingIndex, descriptionTerm tvShow: tvEpisodegenreIndex, tvEpisodeTerm, showTerm, tvSeasonTerm, ratingIndex, descriptionTerm software: softwaresoftwareDeveloper all  : actorTerm, languageTerm, allArtistTerm, tvEpisodeTerm, shortFilmTerm, directorTerm, releaseYearTerm, titleTerm, featureFilmTerm, ratingIndex, keywordsTerm, descriptionTerm, authorTerm, genreIndex, mixTerm, allTrackTerm, artistTerm, composerTerm, tvSeasonTerm, producerTerm, ratingTerm, songTerm, movieArtistTerm, showTerm, movieTerm, albumTerm &#x60;&#x60;&#x60;        (optional)
-     - parameter callback: (query) TheThe name of the  callback function you want to use when returning search results to your website.  (optional)
      - parameter limit: (query) The number of search results you want the iTunes Store to return.  value allowed for [1, 200]  (optional, default to 50)
-     - parameter lang: (query) The language, English or Japanese, you want to use when returning search results. Specify the language using the five-letter codename.   For example: en_us.The default is en_us (English).              (optional, default to en_us)
-     - parameter version: (query) The search result key version you want to receive back from your search.  (optional, default to 2)
-     - parameter explicit_: (query) A flag indicating whether or not you want to include explicit content in your search results.    (optional, default to Yes)
 
      - returns: RequestBuilder<InlineResponse200> 
      */
-    open class func searchByTermWithRequestBuilder(term: String, country: String, media: Media_searchByTerm? = nil, entity: Entity_searchByTerm? = nil, attribute: Attribute_searchByTerm? = nil, callback: String? = nil, limit: Int? = nil, lang: Lang_searchByTerm? = nil, version: Int? = nil, explicit_: Explicit__searchByTerm? = nil) -> RequestBuilder<InlineResponse200> {
+    open class func searchByTermWithRequestBuilder(term: String, country: String, media: Media_searchByTerm? = nil, limit: Int? = nil) -> RequestBuilder<SearchResponse> {
         let path = "/search"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -216,17 +128,11 @@ open class SearchAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "term": term, 
             "country": country, 
-            "media": media?.rawValue, 
-            "entity": entity?.rawValue, 
-            "attribute": attribute?.rawValue, 
-            "callback": callback, 
-            "limit": limit?.encodeToJSON(), 
-            "lang": lang?.rawValue, 
-            "version": version?.encodeToJSON(), 
-            "explicit  ": explicit_?.rawValue
+            "media": media?.rawValue,
+            "limit": limit?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<SearchResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

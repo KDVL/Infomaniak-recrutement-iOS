@@ -12,7 +12,7 @@ class SearchModel:NSObject {
     let original:[ItunesItem]
     private(set) var content:[ItunesItemsGroup]
     
-    init(res:[Result], order:Order){
+    init(res:[SearchItemDTO], order:Order){
         
         self.original = res.map { ItunesItem.parse($0) }
         self.content = []
@@ -93,7 +93,7 @@ struct ItunesItem {
     /** A URL referencing the 30-second preview file for the content associated with the returned media type.  Only returned when media type is track    */
     let previewUrl: String?
     
-    static let parse:(Result) -> (ItunesItem) = {
+    static let parse:(SearchItemDTO) -> (ItunesItem) = {
         var description = ""
         if let trackName = $0.trackName {
             description = trackName

@@ -9,7 +9,7 @@ import Foundation
 
 
 
-public struct Result: Codable {
+public struct SearchItemDTO: Codable {
 
     public enum WrapperType: String, Codable { 
         case track = "track"

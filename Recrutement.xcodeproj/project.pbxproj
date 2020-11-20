@@ -36,8 +36,8 @@
 		0A64EBC3256816BA00B77FC5 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBB9256816BA00B77FC5 /* CodableHelper.swift */; };
 		0A64EBC4256816BA00B77FC5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBBA256816BA00B77FC5 /* Models.swift */; };
 		0A64EBC5256816BA00B77FC5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBBB256816BA00B77FC5 /* Extensions.swift */; };
-		0A64EBCA256816C800B77FC5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBC8256816C800B77FC5 /* Result.swift */; };
-		0A64EBCB256816C800B77FC5 /* InlineResponse200.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBC9256816C800B77FC5 /* InlineResponse200.swift */; };
+		0A64EBCA256816C800B77FC5 /* SearchItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBC8256816C800B77FC5 /* SearchItemDTO.swift */; };
+		0A64EBCB256816C800B77FC5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBC9256816C800B77FC5 /* SearchResponse.swift */; };
 		0A64EBD225681B7400B77FC5 /* ItunesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBD125681B7400B77FC5 /* ItunesViewModel.swift */; };
 		0A64EBD625681B8E00B77FC5 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBD525681B8E00B77FC5 /* SearchModel.swift */; };
 		0A64EBDB25681F5500B77FC5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64EBDA25681F5500B77FC5 /* SearchBar.swift */; };
@@ -78,8 +78,8 @@
 		0A64EBB9256816BA00B77FC5 /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
 		0A64EBBA256816BA00B77FC5 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0A64EBBB256816BA00B77FC5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		0A64EBC8256816C800B77FC5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		0A64EBC9256816C800B77FC5 /* InlineResponse200.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineResponse200.swift; sourceTree = "<group>"; };
+		0A64EBC8256816C800B77FC5 /* SearchItemDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemDTO.swift; sourceTree = "<group>"; };
+		0A64EBC9256816C800B77FC5 /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		0A64EBD125681B7400B77FC5 /* ItunesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesViewModel.swift; sourceTree = "<group>"; };
 		0A64EBD525681B8E00B77FC5 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		0A64EBDA25681F5500B77FC5 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		0A64EBAC256816A300B77FC5 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				0A64EBC9256816C800B77FC5 /* InlineResponse200.swift */,
-				0A64EBC8256816C800B77FC5 /* Result.swift */,
+				0A64EBC9256816C800B77FC5 /* SearchResponse.swift */,
+				0A64EBC8256816C800B77FC5 /* SearchItemDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 				0A64EBC0256816BA00B77FC5 /* JSONEncodableEncoding.swift in Sources */,
 				0A64EBBC256816BA00B77FC5 /* APIHelper.swift in Sources */,
 				0A64EBE42568230300B77FC5 /* View+removePadding.swift in Sources */,
-				0A64EBCB256816C800B77FC5 /* InlineResponse200.swift in Sources */,
+				0A64EBCB256816C800B77FC5 /* SearchResponse.swift in Sources */,
 				0A64EBE8256824EC00B77FC5 /* ActivityIndicator.swift in Sources */,
 				0A64EBD225681B7400B77FC5 /* ItunesViewModel.swift in Sources */,
 				0A64EBB0256816AD00B77FC5 /* SearchAPI.swift in Sources */,
@@ -379,7 +379,7 @@
 				0A64EBBD256816BA00B77FC5 /* Configuration.swift in Sources */,
 				0A1D2B44256827E100E3DB96 /* List+StyleList.swift in Sources */,
 				0A64EBC1256816BA00B77FC5 /* APIs.swift in Sources */,
-				0A64EBCA256816C800B77FC5 /* Result.swift in Sources */,
+				0A64EBCA256816C800B77FC5 /* SearchItemDTO.swift in Sources */,
 				0A1D2B6425683DDE00E3DB96 /* FiltersView.swift in Sources */,
 				0A64EBC3256816BA00B77FC5 /* CodableHelper.swift in Sources */,
 				0A64EB782567CB8D00B77FC5 /* AppDelegate.swift in Sources */,
