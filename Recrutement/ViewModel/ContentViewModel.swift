@@ -10,7 +10,7 @@ import Foundation
 class ContentViewModel: ObservableObject {
 
     ///model
-    @Published private(set) var model = ContentModel(content:[])
+    @Published private(set) var model = ContentModel(res:[])
     
     @Published var isLoading = false
     
@@ -20,7 +20,7 @@ class ContentViewModel: ObservableObject {
                 load(term: searchText)
             }else{
                 isLoading = false
-                model = ContentModel(content:[])
+                model = ContentModel(res:[])
             }
         }
     }
@@ -33,7 +33,7 @@ class ContentViewModel: ObservableObject {
             if self.searchText == term {
                 
                 if let results = data?.results {
-                    self.model = ContentModel(content:results)
+                    self.model = ContentModel(res:results)
                 }else{
                     print(error)
                 }

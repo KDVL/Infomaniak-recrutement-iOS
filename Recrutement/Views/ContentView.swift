@@ -19,9 +19,9 @@ struct ContentView: View {
                         .removePadding()
                         .rowBackground()
                     
-                    ForEach(viewModel.model.content, id:\.trackId) {
-                        ItemRow(content: $0,
-                                imageLoader: ImageLoader(url: $0.artworkUrl100 ?? ""))
+                    ForEach(viewModel.model.content, id:\.id) {
+                        ItemRow(item: $0,
+                                imageLoader: ImageLoader(url: $0.thumbnailURL))
                             .removePadding()
                     }
                     

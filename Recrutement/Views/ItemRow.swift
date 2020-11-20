@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemRow: View {
-    let content:Result
+    let item:ItunesItem
     @ObservedObject var imageLoader:ImageLoader
     
     @State var isActive = false
@@ -17,29 +17,19 @@ struct ItemRow: View {
             
             Image(uiImage: imageLoader.image ?? UIImage())
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width:85, height:85, alignment: .center)
+                .aspectRatio(contentMode: .fit)
+                .frame(width:88, height:130, alignment: .center)
                 .clipped()
             
             VStack(alignment: .leading, spacing:10.0){
-                Text(content.artistName ?? "")
-                    //  .openSansSemiBold()
+                Text(item.title)
+                    .bold()
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color("TextTint"))
                     .frame(maxWidth: .infinity,
                            alignment: .leading)
                 
-                if content.collectionName != "" {
-                    Text(content.collectionName ?? "")
-                        // .openSans(13.0)
-                        .foregroundColor(Color("TextTint"))
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity,
-                               alignment: .leading)
-                }
-                
-                Text(content.collectionName ?? "")
-                    //  .openSans(13.0)
+                Text(item.description)
                     .foregroundColor(Color("TextLightTint"))
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity,
@@ -51,6 +41,6 @@ struct ItemRow: View {
             .padding(.top, 8)
             
             
-        }.frame(height:85)
+        }.frame(height:130)
     }
 }
